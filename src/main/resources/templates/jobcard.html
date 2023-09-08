@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Registration</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+	<!-- create navigation bar ( header) -->
+	<nav class="navbar navbar-dark bg-dark">
+		<a class="navbar-brand" href="#" th:href="@{/jobcard}">JOB Card Module</a>
+		<form class="form-inline">
+			<a class="navbar-brand" href="#" th:href="@{/login}">Logout</a>
+		</form>
+	</nav>
+
+
+	<br>
+	<br>
+	<!-- Create HTML registration form -->
+
+	<div class="container">
+
+		<!-- success message -->
+		<div th:if="${param.success}">
+			<div class="alert alert-info">You've successfully registered Your Vehicle Histroy</div>
+		</div>
+
+		<h1>Create Job Card</h1>
+		<form th:action="@{/jobcard}" method="post" th:object="${JobCard}">
+
+
+			<div class="card border-dark mb-12" style="max-width: 500rem;">
+				<div class="card-header">Customer Details:-</div>
+				<div class="card-body text-dark">
+					<div class="form-row">
+
+						<div class="form-group col-md-6">
+							<label class="control-label" for="curDate"> Current Date </label>
+							<input id="curDate" class="form-control" type="date" th:field="*{curDate}" required
+								autofocus="autofocus" />
+						</div>
+
+						<div class="form-group col-md-6">
+							<label class="control-label" for="custName"> Customer Name </label>
+							<input id="custName" class="form-control" th:field="*{custName}" required
+								autofocus="autofocus" />
+						</div>
+
+						<div class="form-group col-md-6">
+							<label class="control-label" for="vName"> Vehicle Name </label>
+							<input id="vName" class="form-control" th:field="*{vName}" required autofocus="autofocus" />
+						</div>
+
+						<div class="form-group col-md-6">
+							<label class="control-label" for="vMake"> Vehicle Make </label>
+							<input id="vMake" class="form-control" th:field="*{vMake}" required autofocus="autofocus" />
+						</div>
+
+						<div class="form-group col-md-6">
+							<label class="control-label" for="phone"> Phone Number
+
+							</label> <input id="phone" class="form-control" th:field="*{phone}" required
+								autofocus="autofocus" />
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<br>
+
+
+			<div class="card border-dark mb-12" style="max-width: 500rem;">
+				<div class="card-header">Vehicle Inventory:-</div>
+				<div class="card-body text-dark">
+
+					<div class="form-row">
+
+						<div class="form-group col-md-6">
+							<label class="control-label" for="vInventory"> Kms </label>
+							<input id="vInventory" class="form-control" type="Number" th:field="*{vInventory}" required
+								autofocus="autofocus" />
+						</div>
+
+						<div class="form-group col-md-6">
+							<label class="control-label" for="vInventory">Fuel</label>
+							<select id="vInventory" class="form-control" th:field="*{vInventory}">
+								<option value="E" selected>E</option>
+								<option value="1/4">1/4</option>
+								<option value="1/2">1/2</option>
+								<option value="3/4">3/4</option>
+								<option value="F">F</option>
+							</select>
+
+						</div>
+
+						<div class="form-group col-md-6">
+							<label class=" control-label" for="vInventory"> Upload Speedometer images (optional)
+							</label>
+							<input id="vInventory" class="form-control" type="file" th:field="*{vInventory}" />
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<br>
+
+
+
+
+			<div class="card border-dark mb-18" style="max-width: 500rem;">
+				<div class="card-header">Select Item's:-</div>
+				<div class="card-body text-dark">
+					<div class="form-row">
+
+						<div class="form-group col-md-3">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="sItem" th:field="*{sItem}"
+									name="sItem" value="Jack&Tommy">
+								<label class="form-check-label" for="sItem">
+									Jack & Tommy
+								</label>
+							</div>
+						</div>
+						<div class="form-group col-md-3">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="sItem" th:field="*{sItem}"
+									name="sItem" value="Stepney">
+								<label class="form-check-label" for="sItem">
+									Stepney
+								</label>
+							</div>
+						</div>
+						<div class="form-group col-md-3">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="sItem" th:field="*{sItem}"
+									name="sItem" value="ToolKit">
+								<label class="form-check-label" for="sItem">
+									Tool Kit
+								</label>
+							</div>
+						</div>
+						<div class="form-group col-md-3">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="sItem" th:field="*{sItem}"
+									name="sItem" value="Tape">
+								<label class="form-check-label" for="sItem">
+									Tape
+								</label>
+							</div>
+						</div>
+						<div class="form-group col-md-3">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="sItem" th:field="*{sItem}"
+									name="sItem" value="Battery">
+								<label class="form-check-label" for="sItem">
+									Battery
+								</label>
+							</div>
+						</div>
+						<div class="form-group col-md-3">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="sItem" th:field="*{sItem}"
+									name="sItem" value="MirrorRH">
+								<label class="form-check-label" for="sItem">
+									Mirror RH
+								</label>
+							</div>
+						</div>
+						<div class="form-group col-md-3">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="sItem" th:field="*{sItem}"
+									name="sItem" value="MirrorLH">
+								<label class="form-check-label" for="sItem">
+									Mirror LH
+								</label>
+							</div>
+						</div>
+						<div class="form-group col-md-3">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="sItem" th:field="*{sItem}"
+									name="sItem" value="Mats">
+								<label class="form-check-label" for="sItem">
+									Mats (No field)
+								</label>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+			<br>
+
+
+			<div class="card border-dark mb-12" style="max-width: 500rem;">
+				<div class="card-header">Customer complaints / Tasks to do:-</div>
+				<div class="card-body text-dark">
+					<div class="form-row">
+
+						<div class="form-group col-md-6">
+							<div class="form-check">
+
+								<textarea id="cusCompTask" class="form-control" rows="5" th:field="*{cusCompTask}"
+									required autofocus="autofocus"></textarea>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<br>
+
+
+
+
+
+			<div class="card border-dark mb-16" style="max-width: 500rem;">
+				<div class="card-header">Vehicle Image's:-</div>
+				<div class="card-body text-dark">
+					<div class="form-row">
+
+						<div class="form-group col-md-4">
+							<div class="form-check">
+								<label class="control-label" for="frontImg"> Front</label>
+								<input id="frontImg" class="form-control" type="file" name="frontImg"
+									th:field="*{frontImg}" />
+							</div>
+						</div>
+						<div class="form-group col-md-4">
+							<div class="form-check">
+								<label class="control-label" for="rhSide"> Right-Hand Side </label>
+								<input id="rhSide" class="form-control" type="file" name="rhSide"
+									th:field="*{rhSide}" />
+							</div>
+						</div>
+						<div class="form-group col-md-4">
+							<div class="form-check">
+								<label class="control-label" for="lhSide"> Left-Hand Side </label>
+								<input id="lhSide" class="form-control" type="file" name="lhSide"
+									th:field="*{lhSide}" />
+							</div>
+						</div>
+						<div class="form-group col-md-4">
+							<div class="form-check">
+								<label class="control-label" for="rearImg"> Rear </label>
+								<input id="rearImg" class="form-control" type="file" name="rearImg"
+									th:field="*{rearImg}" />
+							</div>
+						</div>
+						<div class="form-group col-md-4">
+							<div class="form-check">
+								<label class="control-label" for="dashImg"> DashBoard </label>
+								<input id="dashImg" class="form-control" type="file" name="dashImg"
+									th:field="*{dashImg}" />
+							</div>
+						</div>
+						<div class="form-group col-md-4">
+							<div class="form-check">
+								<label class="control-label" for="dickyImg"> Dicky </label>
+								<input id="dickyImg" class="form-control" type="file" name="dickyImg"
+									th:field="*{dickyImg}" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+
+
+
+			<div class="card border-dark mb-12" style="max-width: 500rem;">
+				<div class="card-header">Assign Staff :-</div>
+				<div class="card-body text-dark">
+
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="assignStaff">You</label>
+							<span class="input-group-text" id="assignStaff" th:field="*{assignStaff}"
+								sec:authentication="principal.username">username</span>
+						</div>
+						<div class="form-group col-md-4">
+							<label for="assignStaff">Saff</label>
+							<select id="assignStaff" class="form-control">
+								<option selected>Choose...</option>
+								<option>...</option>
+
+							</select>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+
+			<div class="form-group text-center">
+				<button type="submit" class="btn btn-success ">Register</button>
+
+			</div>
+
+		</form>
+	</div>
+
+</body>
+
+</html>
